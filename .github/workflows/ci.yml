@@ -8,7 +8,15 @@ on:
 jobs:
   build-and-push:
     runs-on: windows-latest
+    environment: staging
     steps:
+      - name: Print out secrets and variables
+        env:
+          DATABASE_USER_NAME: ${{ secrets.DATABASE_USER_NAME }}
+          TESTING: ${{ vars.TESTING }}
+        run: |
+          Write-Output $env:DATABASE_USER_NAME
+          Write-Output $env:TESTING
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
