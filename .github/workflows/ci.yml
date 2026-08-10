@@ -6,14 +6,14 @@ on:
       - master
 
 jobs:
-  hello-world:
+  build-and-push:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
-      - run: dotnet publish -r win-x64 --self-contained -p:PublishSingleFile=true
+      - run: dotnet publish -r win-x64 --self-contained -p:PublishSingleFile=true -o publish/
       - uses: actions/upload-artifact@v4
         with:
           name: drop
