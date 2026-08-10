@@ -15,8 +15,8 @@ jobs:
           DATABASE_USER_NAME: ${{ secrets.DATABASE_USER_NAME }}
           TESTING: ${{ vars.TESTING }}
         run: |
-          Write-Output $env:DATABASE_USER_NAME
-          Write-Output $env:TESTING
+          Write-Output "$env:DATABASE_USER_NAME"
+          Write-Output "TESTING = $env:TESTING"
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
