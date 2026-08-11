@@ -13,7 +13,7 @@ jobs:
       - name: Print out secrets and variables
         env:
           DATABASE_USER_NAME: ${{ secrets.DATABASE_USER_NAME }}
-          TESTING: ${{ variables.TESTING }}
+          TESTING: ${{ vars.TEST }}
         run: |
           Write-Output "$env:DATABASE_USER_NAME"
           Write-Output "TESTING = $env:TESTING"
